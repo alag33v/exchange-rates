@@ -4,12 +4,24 @@ export const StyledHeader = styled.header`
   h1 {
     font-size: 36px;
     text-align: center;
+
+    @media (max-width: 900px) {
+      font-size: 30px;
+    }
   }
 
   ul {
     display: flex;
     justify-content: space-around;
     padding: 0;
+
+    @media (max-width: 550px) {
+      justify-content: space-between;
+    }
+
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
   }
 
   li {
@@ -39,6 +51,29 @@ export const StyledHeader = styled.header`
 
     &:active {
       background-color: #2e10f0;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 18px;
+      letter-spacing: 1px;
+      padding: 15px 20px;
+      margin: 10px 0;
+    }
+
+    @media (max-width: 700px) {
+      font-size: 16px;
+      letter-spacing: 0;
+      padding: 15px;
+    }
+
+    @media (max-width: 550px) {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    @media (max-width: 450px) {
+      text-align: center;
+      margin: 5px 0;
     }
   }
 

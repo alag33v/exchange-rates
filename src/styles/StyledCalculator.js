@@ -5,6 +5,10 @@ export const StyledCalculator = styled.header`
     font-size: 28px;
     text-align: center;
     margin-top: 50px;
+
+    @media (max-width: 900px) {
+      font-size: 26px;
+    }
   }
 
   .base-currency,
@@ -14,6 +18,7 @@ export const StyledCalculator = styled.header`
     text-align: center;
     list-style: none;
     width: 400px;
+    max-width: 100%;
     padding: 15px 20px;
     margin: 15px auto;
     border: 1px solid #ccc;
@@ -21,6 +26,10 @@ export const StyledCalculator = styled.header`
 
     span {
       font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 16px;
     }
   }
 
@@ -32,19 +41,38 @@ export const StyledCalculator = styled.header`
     display: flex;
     justify-content: center;
 
+    @media (max-width: 400px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
     input {
       font-size: 20px;
       text-align: center;
       display: block;
       width: 240px;
+      max-width: 100%;
       border: 1px solid #ccc;
       padding: 10px 20px;
+
+      @media (max-width: 900px) {
+        font-size: 16px;
+        width: 240px;
+      }
     }
 
     select {
       width: 60px;
+      height: 40px;
+      max-width: 100%;
       border: 1px solid #ccc;
       border-left: none;
+
+      @media (max-width: 400px) {
+        width: 240px;
+        border-left: 1px solid #ccc;
+        border-bottom: none;
+      }
     }
   }
 
@@ -57,6 +85,7 @@ export const StyledCalculator = styled.header`
     color: #000;
     display: inline-block;
     width: 300px;
+    max-width: 100%;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px 30px;
@@ -72,6 +101,10 @@ export const StyledCalculator = styled.header`
 
     &:active {
       background-color: #2e10f0;
+    }
+
+    @media (max-width: 900px) {
+      width: 240px;
     }
   }
 

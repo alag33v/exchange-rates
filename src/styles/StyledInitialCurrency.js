@@ -6,6 +6,10 @@ export const StyledInitialCurrency = styled.div`
     align-items: center;
     margin: 25px 0;
 
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+
     h3 {
       font-size: 20px;
       margin: 0 10px;
@@ -39,12 +43,20 @@ export const StyledInitialCurrency = styled.div`
   h2 {
     font-size: 28px;
     text-align: center;
+
+    @media (max-width: 900px) {
+      font-size: 26px;
+    }
   }
 
   .country {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
 
     li {
       display: flex;
