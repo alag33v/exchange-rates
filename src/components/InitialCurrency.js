@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeCurrency, favoriteCurrencies } from '../redux/exchangeReducer';
-import { StyledInitialCurrency } from '../styles/StyledInitialCurrency';
 import star from '../images/star.svg';
+import { StyledInitialCurrency } from '../styles/StyledInitialCurrency';
 
 const InitialCurrency = () => {
   const countries = useSelector(state => state.exchange.countries);
@@ -30,7 +30,6 @@ const InitialCurrency = () => {
           ))}
         </ul>
       </div>
-
       <h2>Текущие курсы валют</h2>
       <ul className='country'>
         {countries.map((country, index) => (

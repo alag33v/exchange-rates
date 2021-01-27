@@ -63,13 +63,13 @@ export const StyledCalculator = styled.header`
 
     select {
       width: 60px;
-      height: 40px;
       max-width: 100%;
       border: 1px solid #ccc;
       border-left: none;
 
       @media (max-width: 400px) {
         width: 240px;
+        height: 40px;
         border-left: 1px solid #ccc;
         border-bottom: none;
       }

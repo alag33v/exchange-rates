@@ -4,8 +4,6 @@ const GET_COUNTRIES = 'exchange/GET_COUNTRIES';
 const GET_DATE = 'exchange/GET_DATE';
 const CHANGE_CURRENCY = 'exchange/CHANGE_CURRENCY';
 const FAVORITE_CURRENCIES = 'exchange/FAVORITE_CURRENCIES';
-// const SHOW_LOADER = 'exchange/SHOW_LOADER';
-// const HIDE_LOADER = 'exchange/HIDE_LOADER';
 
 // Reducer
 const initialState = {

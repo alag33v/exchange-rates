@@ -39,7 +39,6 @@ export const StyledHeader = styled.header`
     border: 1px solid #ccc;
     border-radius: 10px;
     letter-spacing: 2px;
-
     background-size: 200% auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transition: 0.5s;
