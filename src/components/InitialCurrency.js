@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeCurrency, favoriteCurrencies } from '../redux/exchangeReducer';
 import { StyledInitialCurrency } from '../styles/StyledInitialCurrency';
+import star from '../images/star.svg';
 
 const InitialCurrency = () => {
-  const date = useSelector(state => state.exchange.date);
   const countries = useSelector(state => state.exchange.countries);
   const base = useSelector(state => state.exchange.base);
   const favorite = useSelector(state => state.exchange.favorite);
@@ -19,23 +19,27 @@ const InitialCurrency = () => {
 
   return (
     <StyledInitialCurrency>
-      <h3>Избранное</h3>
-      <ul>
-        {favorite.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <h1>Текущие курсы валют на {date}</h1>
-      <ul>
+      <div className='favorites'>
+        <img className='favorites__image' src={star} alt='star' />
+        <h3>Избранное:</h3>
+        <ul>
+          {favorite.map((item, index) => (
+            <li className='favorites__item' key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <h2>Текущие курсы валют</h2>
+      <ul className='country'>
         {countries.map((country, index) => (
           <li className={base === country ? 'active' : ''} key={index}>
             <span>{country}</span>
             <button onClick={() => chooseCountry(country)} key={index}>
-              Выбрать {index}
+              Выбрать
             </button>
-            <button onClick={() => addToFavorite(country)}>
-              Добавить в избранное
-            </button>
+            <img src={star} alt='star' onClick={() => addToFavorite(country)} />
           </li>
         ))}
       </ul>

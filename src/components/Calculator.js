@@ -4,10 +4,9 @@ import { StyledCalculator } from '../styles/StyledCalculator';
 
 const Calculator = () => {
   const [result, setResult] = useState(0);
-
-  const date = useSelector(state => state.exchange.date);
   const rates = useSelector(state => state.exchange.rates);
   const countries = useSelector(state => state.exchange.countries);
+  const date = useSelector(state => state.exchange.date);
   const base = useSelector(state => state.exchange.base);
 
   const calculateRate = e => {
@@ -21,11 +20,13 @@ const Calculator = () => {
 
   return (
     <StyledCalculator>
-      <h3>Калькулятор обмена на {date}</h3>
-      <div className='active'>Я хочу обменять {base}</div>
-      <div>Я хочу</div>
-      <div className='block'>
-        <form onSubmit={calculateRate}>
+      <h2>Калькулятор обмена на {date}</h2>
+      <div className='base-currency'>
+        Я хочу обменять валюту <span>{base}</span>
+      </div>
+      <div className='get'>Я хочу получить</div>
+      <form onSubmit={calculateRate}>
+        <div className='currency-selection'>
           <input type='number' name='count-currency' min='0' step='any' />
           <select name='type-currency'>
             {countries.map((country, index) => (
@@ -34,13 +35,12 @@ const Calculator = () => {
               </option>
             ))}
           </select>
-          <button type='submit'>Calculate</button>
-        </form>
-        <div>
-          <h4>Мне необходимо {result.toFixed(2)}</h4>
-          <p></p>
         </div>
-      </div>
+        <button type='submit'>Вычислить</button>
+      </form>
+      <h4>
+        Необходимо оплатить {result.toFixed(2)} {base}
+      </h4>
     </StyledCalculator>
   );
 };

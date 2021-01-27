@@ -19,7 +19,7 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path='/' component={InitialCurrency} />
+        <Route exact path='/exchange-rates' component={InitialCurrency} />
         <Route exact path='/calculator' component={Calculator} />
       </Switch>
     </BrowserRouter>

@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { StyledHeader } from '../styles/StyledHeader';
 
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>React Lite Level</h1>
+      <h1>Exchange Rates</h1>
       <ul>
-        <Link to='/'>
+        <NavLink to='/exchange-rates'>
           <li>Текущие курсы валют</li>
-        </Link>
-        <Link to='/calculator'>
+        </NavLink>
+        <NavLink to='/calculator'>
           <li>Конвертирования валют</li>
-        </Link>
+        </NavLink>
       </ul>
     </StyledHeader>
   );
