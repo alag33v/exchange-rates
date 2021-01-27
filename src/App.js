@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { fetchCurrencies } from './redux/exchangeReducer';
+import Header from './components/Header';
+import InitialCurrency from './components/InitialCurrency';
+import Calculator from './components/Calculator';
+import { GlobalStyle } from './styles/GlobalStyle';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrencies());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Header />
+      <Switch>
+        <Route exact path='/' component={InitialCurrency} />
+        <Route exact path='/calculator' component={Calculator} />
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
