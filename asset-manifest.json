@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/exchange-rates/static/js/main.54214c3a.chunk.js",
-    "main.js.map": "/exchange-rates/static/js/main.54214c3a.chunk.js.map",
+    "main.js": "/exchange-rates/static/js/main.6806984c.chunk.js",
+    "main.js.map": "/exchange-rates/static/js/main.6806984c.chunk.js.map",
     "runtime-main.js": "/exchange-rates/static/js/runtime-main.3ce80adc.js",
     "runtime-main.js.map": "/exchange-rates/static/js/runtime-main.3ce80adc.js.map",
     "static/js/2.1dc209be.chunk.js": "/exchange-rates/static/js/2.1dc209be.chunk.js",
@@ -13,6 +13,6 @@
   "entrypoints": [
     "static/js/runtime-main.3ce80adc.js",
     "static/js/2.1dc209be.chunk.js",
-    "static/js/main.54214c3a.chunk.js"
+    "static/js/main.6806984c.chunk.js"
   ]
 }
