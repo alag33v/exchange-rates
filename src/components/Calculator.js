@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { StyledCalculator } from '../styles/StyledCalculator';
+import { StyledLoading } from '../styles/StyledLoading';
 
 const Calculator = () => {
   const [result, setResult] = useState(0);
@@ -8,6 +9,7 @@ const Calculator = () => {
   const countries = useSelector(state => state.exchange.countries);
   const date = useSelector(state => state.exchange.date);
   const base = useSelector(state => state.exchange.base);
+  const loading = useSelector(state => state.exchange.loading);
 
   const calculateRate = e => {
     e.preventDefault();
@@ -17,6 +19,8 @@ const Calculator = () => {
     const fromCurrency = 1 * rates[typeCurrency];
     setResult(toCurrency / fromCurrency);
   };
+
+  if (loading) return <StyledLoading />;
 
   return (
     <StyledCalculator>

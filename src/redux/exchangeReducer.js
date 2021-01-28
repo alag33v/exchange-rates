@@ -4,6 +4,8 @@ const GET_COUNTRIES = 'exchange/GET_COUNTRIES';
 const GET_DATE = 'exchange/GET_DATE';
 const CHANGE_CURRENCY = 'exchange/CHANGE_CURRENCY';
 const FAVORITE_CURRENCIES = 'exchange/FAVORITE_CURRENCIES';
+const SHOW_LOADER = 'exchange/SHOW_LOADER';
+const HIDE_LOADER = 'exchange/HIDE_LOADER';
 
 // Reducer
 const initialState = {
@@ -11,7 +13,8 @@ const initialState = {
   countries: [],
   base: 'CAD',
   date: '',
-  favorite: []
+  favorite: [],
+  loading: false
 };
 
 export const exchangeReducer = (state = initialState, action) => {
@@ -26,6 +29,10 @@ export const exchangeReducer = (state = initialState, action) => {
       return { ...state, base: action.payload };
     case FAVORITE_CURRENCIES:
       return { ...state, favorite: [...state.favorite, action.payload] };
+    case SHOW_LOADER:
+      return { ...state, loading: true };
+    case HIDE_LOADER:
+      return { ...state, loading: false };
     default:
       return state;
   }
@@ -57,11 +64,21 @@ export const favoriteCurrencies = country => ({
   payload: country
 });
 
+const showLoader = () => ({
+  type: SHOW_LOADER
+});
+
+const hideLoader = () => ({
+  type: HIDE_LOADER
+});
+
 // Thunk Creators
 export const fetchCurrencies = () => async dispatch => {
+  dispatch(showLoader());
   const response = await fetch('https://api.exchangeratesapi.io/latest');
   const data = await response.json();
   dispatch(getRates(data.rates));
   dispatch(getCountries(Object.keys(data.rates)));
   dispatch(getDate(data.date));
+  dispatch(hideLoader());
 };

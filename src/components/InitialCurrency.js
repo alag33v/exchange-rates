@@ -2,11 +2,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeCurrency, favoriteCurrencies } from '../redux/exchangeReducer';
 import star from '../images/star.svg';
 import { StyledInitialCurrency } from '../styles/StyledInitialCurrency';
+import { StyledLoading } from '../styles/StyledLoading';
 
 const InitialCurrency = () => {
   const countries = useSelector(state => state.exchange.countries);
   const base = useSelector(state => state.exchange.base);
   const favorite = useSelector(state => state.exchange.favorite);
+  const loading = useSelector(state => state.exchange.loading);
   const dispatch = useDispatch();
 
   const chooseCountry = country => {
@@ -16,6 +18,8 @@ const InitialCurrency = () => {
   const addToFavorite = country => {
     dispatch(favoriteCurrencies(country));
   };
+
+  if (loading) return <StyledLoading />;
 
   return (
     <StyledInitialCurrency>
